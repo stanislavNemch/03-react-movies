@@ -1,4 +1,4 @@
-import axios, { type AxiosResponse } from "axios";
+import axios from "axios";
 import type { Movie } from "../types/movie";
 
 // Інтерфейс для відповіді від TMDB API
@@ -21,13 +21,8 @@ const apiClient = axios.create({
  * @returns Проміс, що повертає масив фільмів.
  */
 export const fetchMovies = async (query: string): Promise<Movie[]> => {
-    const response: AxiosResponse<TmdbResponse> = await apiClient.get(
-        "/search/movie",
-        {
-            params: {
-                query,
-            },
-        }
-    );
-    return response.data.results;
+    const { data } = await apiClient.get<TmdbResponse>("/search/movie", {
+        params: { query },
+    });
+    return data.results;
 };

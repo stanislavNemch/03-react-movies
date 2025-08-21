@@ -51,7 +51,7 @@ const App = () => {
     return (
         <div className={styles.app}>
             <Toaster position="top-center" />
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSubmit={handleSearch} />
             {isLoading && <Loader />}
             {error && <ErrorMessage />}
             {movies.length > 0 && (
