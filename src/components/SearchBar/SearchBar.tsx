@@ -3,30 +3,24 @@
 // - Керує сабмітом форми, валідує поле (не порожнє).
 // - Викликає onSubmit(query) для пошуку фільмів.
 // - Показує зовнішнє посилання на TMDB, містить інпут та кнопку.
-import type { FormEvent } from "react";
 import toast from "react-hot-toast";
 import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
-    onSubmit: (query: string) => void;
+    onSearch: (query: string) => void;
 }
 
-const SearchBar = ({ onSubmit }: SearchBarProps) => {
-    const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
-        event.preventDefault();
-        const form = event.currentTarget;
-        const query = (form.elements.namedItem("query") as HTMLInputElement)
-            .value;
+const SearchBar = ({ onSearch }: SearchBarProps) => {
+    // Ця функція буде викликана атрибутом `action`
+    const handleFormAction = (formData: FormData) => {
+        const query = formData.get("query") as string;
 
         if (query.trim() === "") {
-            toast.error("Please enter your search query.", {
-                position: "top-center",
-            });
+            toast.error("Please enter your search query.");
             return;
         }
 
-        onSubmit(query);
-        form.reset();
+        onSearch(query);
     };
 
     return (
@@ -40,7 +34,8 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
                 >
                     Powered by TMDB
                 </a>
-                <form className={styles.form} onSubmit={handleSubmit}>
+                {/* Використовуємо `action` замість `onSubmit` */}
+                <form className={styles.form} action={handleFormAction}>
                     <input
                         className={styles.input}
                         type="text"
