@@ -4,8 +4,6 @@
 
 Цей проєкт є навчальним вебзастосунком для пошуку фільмів, створеним на **React** та **TypeScript**. Він дозволяє користувачам шукати фільми за ключовим словом, переглядати результати у вигляді сітки постерів та отримувати детальну інформацію про кожен фільм у модальному вікні.
 
-Також реалізована можливість **довантажувати додаткові сторінки** з фільмами, якщо результатів пошуку багато, що покращує взаємодію з великими обсягами даних.
-
 Застосунок взаємодіє з публічним API сервісу [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
 ---
@@ -35,7 +33,6 @@ src
 │   ├── MovieModal/     # Модальне вікно
 │   ├── Loader/         # Індикатор завантаження
 │   ├── ErrorMessage/   # Повідомлення про помилку
-│   └── LoadMoreButton/ # Кнопка для довантаження фільмів
 │
 ├── services/           # Сервіси для роботи з API
 │   └── movieService.ts # Функція для HTTP-запитів
@@ -74,12 +71,6 @@ src
     -   Використання `createPortal` для рендерингу модального вікна поза основним DOM-деревом.
     -   Додавання функціоналу для закриття вікна по кліку на бекдроп та натисканню клавіші `Escape`.
 
-6.  **Реалізація пагінації:**
-
-    -   Управління станом поточної сторінки (`page`) та загальної кількості сторінок (`totalPages`).
-    -   Додавання нових результатів до існуючого списку, а не його повна заміна.
-    -   Реалізація плавного скролу до нових елементів для покращення користувацького досвіду.
-
 Це дозволило не просто створити робочий застосунок, а й глибоко зрозуміти ключові механізми, що лежать в основі сучасних React-застосунків.
 
 ---
@@ -89,8 +80,6 @@ src
 # Movie Search with The Movie DB API
 
 This project is an educational web application for searching movies, built with **React** and **TypeScript**. It allows users to search for movies by keyword, view results as a grid of posters, and get detailed information about each movie in a modal window.
-
-It also features the ability to **load additional pages** of movies if the search results are extensive, improving the user experience with large amounts of data.
 
 The application interacts with the public API of [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
@@ -121,7 +110,6 @@ src
 │   ├── MovieModal/     # Modal window
 │   ├── Loader/         # Loading indicator
 │   ├── ErrorMessage/   # Error message display
-│   └── LoadMoreButton/ # Button to load more movies
 │
 ├── services/           # Services for API interaction
 │   └── movieService.ts # Function for HTTP requests
@@ -159,11 +147,5 @@ This project served as excellent practice for mastering fundamental concepts of 
 
     -   Using `createPortal` to render the modal outside the main DOM tree.
     -   Adding functionality to close the modal by clicking on the backdrop or pressing the `Escape` key.
-
-6.  **Implementing Pagination:**
-
-    -   Managing the state for the current page (`page`) and the total number of pages (`totalPages`).
-    -   Appending new results to the existing list instead of replacing it.
-    -   Implementing a smooth scroll to the new elements to enhance user experience.
 
 This approach allowed not just to create a functional application, but also to gain a deep understanding of the key mechanisms underlying modern React applications.

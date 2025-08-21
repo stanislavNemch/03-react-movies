@@ -16,26 +16,18 @@ const apiClient = axios.create({
 });
 
 /**
- * Функція для пошуку фільмів за ключовим словом та сторінкою.
+ * Функція для пошуку фільмів за ключовим словом.
  * @param query - Рядок для пошуку.
- * @param page - Номер сторінки для завантаження.
- * @returns Проміс, що повертає об'єкт з масивом фільмів та загальною кількістю сторінок.
+ * @returns Проміс, що повертає масив фільмів.
  */
-export const fetchMovies = async (
-    query: string,
-    page: number
-): Promise<{ movies: Movie[]; totalPages: number }> => {
+export const fetchMovies = async (query: string): Promise<Movie[]> => {
     const response: AxiosResponse<TmdbResponse> = await apiClient.get(
         "/search/movie",
         {
             params: {
                 query,
-                page,
             },
         }
     );
-    return {
-        movies: response.data.results,
-        totalPages: response.data.total_pages,
-    };
+    return response.data.results;
 };
