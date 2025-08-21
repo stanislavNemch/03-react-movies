@@ -43,7 +43,7 @@ const App = (): JSX.Element => {
 
     return (
         <div className={styles.app}>
-            <Toaster position="top-right" />
+            <Toaster position="top-center" />
             <SearchBar onSubmit={handleSearch} />
             {isLoading && <Loader />}
             {error && <ErrorMessage />}
