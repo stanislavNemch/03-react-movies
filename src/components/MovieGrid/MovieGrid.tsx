@@ -4,7 +4,6 @@
 // - onSelect: callback, викликається при кліку на картку фільму (передає Movie).
 // Логіка:
 // - Мапить масив movies в список елементів <li> з зображенням та заголовком.
-import type { JSX } from "react";
 import type { Movie } from "../../types/movie";
 import styles from "./MovieGrid.module.css";
 
@@ -13,7 +12,7 @@ interface MovieGridProps {
     onSelect: (movie: Movie) => void;
 }
 
-const MovieGrid = ({ movies, onSelect }: MovieGridProps): JSX.Element => {
+const MovieGrid = ({ movies, onSelect }: MovieGridProps) => {
     return (
         <ul className={styles.grid}>
             {movies.map((movie) => (

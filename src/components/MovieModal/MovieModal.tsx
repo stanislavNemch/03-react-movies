@@ -3,7 +3,7 @@
 // - Використовує createPortal, щоб рендерити модалку поза основним DOM-деревом компонента.
 // - Обробляє натискання Escape та клік на бекдроп для закриття.
 // - Блокує прокрутку тіла сторінки під час відкритої модалки.
-import { useEffect, type JSX } from "react";
+import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import type { Movie } from "../../types/movie";
 import styles from "./MovieModal.module.css";
@@ -15,7 +15,7 @@ interface MovieModalProps {
 
 const modalRoot = document.body;
 
-const MovieModal = ({ movie, onClose }: MovieModalProps): JSX.Element => {
+const MovieModal = ({ movie, onClose }: MovieModalProps) => {
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent): void => {
             if (event.code === "Escape") {

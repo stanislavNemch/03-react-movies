@@ -4,6 +4,7 @@ import type { Movie } from "../types/movie";
 // Інтерфейс для відповіді від TMDB API
 interface TmdbResponse {
     results: Movie[];
+    total_pages: number;
 }
 
 // Створюємо екземпляр axios з базовими налаштуваннями
@@ -15,18 +16,26 @@ const apiClient = axios.create({
 });
 
 /**
- * Функція для пошуку фільмів за ключовим словом.
+ * Функція для пошуку фільмів за ключовим словом та сторінкою.
  * @param query - Рядок для пошуку.
- * @returns Проміс, що повертає масив фільмів.
+ * @param page - Номер сторінки для завантаження.
+ * @returns Проміс, що повертає об'єкт з масивом фільмів та загальною кількістю сторінок.
  */
-export const fetchMovies = async (query: string): Promise<Movie[]> => {
+export const fetchMovies = async (
+    query: string,
+    page: number
+): Promise<{ movies: Movie[]; totalPages: number }> => {
     const response: AxiosResponse<TmdbResponse> = await apiClient.get(
         "/search/movie",
         {
             params: {
                 query,
+                page,
             },
         }
     );
-    return response.data.results;
+    return {
+        movies: response.data.results,
+        totalPages: response.data.total_pages,
+    };
 };

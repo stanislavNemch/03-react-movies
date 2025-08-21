@@ -3,7 +3,7 @@
 // - Керує сабмітом форми, валідує поле (не порожнє).
 // - Викликає onSubmit(query) для пошуку фільмів.
 // - Показує зовнішнє посилання на TMDB, містить інпут та кнопку.
-import type { FormEvent, JSX } from "react";
+import type { FormEvent } from "react";
 import toast from "react-hot-toast";
 import styles from "./SearchBar.module.css";
 
@@ -11,7 +11,7 @@ interface SearchBarProps {
     onSubmit: (query: string) => void;
 }
 
-const SearchBar = ({ onSubmit }: SearchBarProps): JSX.Element => {
+const SearchBar = ({ onSubmit }: SearchBarProps) => {
     const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
         const form = event.currentTarget;
