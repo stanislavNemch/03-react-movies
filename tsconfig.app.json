@@ -14,7 +14,6 @@
         "moduleDetection": "force",
         "noEmit": true,
         "jsx": "react-jsx",
-        "types": ["vite/client", "react", "react-dom"],
 
         /* Linting */
         "strict": true,
@@ -22,7 +21,10 @@
         "noUnusedParameters": true,
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true
+        "noUncheckedSideEffectImports": true,
+
+        // Явно подхватываем типы React + Vite
+        "types": ["vite/client", "react", "react-dom"]
     },
     "include": ["src"]
 }

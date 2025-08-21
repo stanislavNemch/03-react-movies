@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import type { Movie } from "../../types/movie";
 import styles from "./MovieGrid.module.css";
 

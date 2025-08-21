@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import styles from "./Loader.module.css";
 
 const Loader = (): JSX.Element => {
