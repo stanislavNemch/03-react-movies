@@ -19,7 +19,9 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
             .value;
 
         if (query.trim() === "") {
-            toast.error("Please enter your search query.");
+            toast.error("Please enter your search query.", {
+                position: "top-center",
+            });
             return;
         }
 
