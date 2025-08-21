@@ -1,3 +1,10 @@
+// Компонент App — головний компонент додатку.
+// Основне:
+// - Керує станом пошуку: масив фільмів, індикатор завантаження, стан помилки.
+// - Викликає сервіс fetchMovies для отримання результатів пошуку.
+// - Відображає SearchBar, Loader, ErrorMessage, MovieGrid та MovieModal.
+// - handleSearch: асинхронний запит, обробка помилок та повідомлень через toast.
+// - handleSelectMovie / handleCloseModal: управління відкриттям модального вікна.
 import { useState, type JSX } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { fetchMovies } from "../../services/movieService";

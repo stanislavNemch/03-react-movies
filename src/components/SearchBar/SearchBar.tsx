@@ -1,3 +1,8 @@
+// Компонент пошукової панелі.
+// Основне:
+// - Керує сабмітом форми, валідує поле (не порожнє).
+// - Викликає onSubmit(query) для пошуку фільмів.
+// - Показує зовнішнє посилання на TMDB, містить інпут та кнопку.
 import type { FormEvent, JSX } from "react";
 import toast from "react-hot-toast";
 import styles from "./SearchBar.module.css";

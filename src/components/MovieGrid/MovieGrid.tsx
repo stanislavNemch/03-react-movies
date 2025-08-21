@@ -1,3 +1,9 @@
+// Компонент для візуалізації сітки фільмів.
+// Props:
+// - movies: масив об'єктів Movie (дані з API).
+// - onSelect: callback, викликається при кліку на картку фільму (передає Movie).
+// Логіка:
+// - Мапить масив movies в список елементів <li> з зображенням та заголовком.
 import type { JSX } from "react";
 import type { Movie } from "../../types/movie";
 import styles from "./MovieGrid.module.css";

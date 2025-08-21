@@ -1,3 +1,5 @@
+// Невеликий компонент для відображення повідомлення про помилку.
+// Використовується, коли в App встановлено стан error = true.
 import type { JSX } from "react";
 import styles from "./ErrorMessage.module.css";
 
